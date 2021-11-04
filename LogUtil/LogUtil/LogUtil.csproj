@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <Configurations>Debug;Release</Configurations>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DefineConstants>TRACE;DEBUG;NETCOREAPP;NETCOREAPP3_1;UNITY_ENGINE</DefineConstants>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Remove="UnityEngine" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="UnityEngine">
+      <HintPath>..\Lib\UnityEngine.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+</Project>
