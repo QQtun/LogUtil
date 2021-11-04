@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace SkyGame
+namespace LogUtil
 {
     public class Debug
     {

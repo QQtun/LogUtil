@@ -1,6 +1,6 @@
-﻿using SkyGame.LogTagType;
+﻿using LogUtil.LogTagType;
 
-namespace SkyGame
+namespace LogUtil
 {
     public abstract class LogTag
     {
