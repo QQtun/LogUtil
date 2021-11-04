@@ -34,12 +34,12 @@ namespace LogUtil
         {
             Console.ForegroundColor = ConsoleColor.Red;
             Console.Write("[E]");
+            Console.Write(Space);
             Console.ForegroundColor = ConsoleColor.White;
             Console.Write(DateTime.Now.ToString(TimeFormat));
             Console.Write(Space);
             Console.ForegroundColor = ConsoleColor.Cyan;
             Console.Write(GetTagString(tag));
-            Console.Write(Space);
             Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine(log.ToString());
             Console.ForegroundColor = ConsoleColor.Gray;
@@ -49,12 +49,12 @@ namespace LogUtil
         {
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.Write("[W]");
+            Console.Write(Space);
             Console.ForegroundColor = ConsoleColor.White;
             Console.Write(DateTime.Now.ToString(TimeFormat));
             Console.Write(Space);
             Console.ForegroundColor = ConsoleColor.Cyan;
             Console.Write(GetTagString(tag));
-            Console.Write(Space);
             Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine(log.ToString());
             Console.ForegroundColor = ConsoleColor.Gray;
@@ -64,12 +64,12 @@ namespace LogUtil
         {
             Console.ForegroundColor = ConsoleColor.Green;
             Console.Write("[I]");
+            Console.Write(Space);
             Console.ForegroundColor = ConsoleColor.White;
             Console.Write(DateTime.Now.ToString(TimeFormat));
             Console.Write(Space);
             Console.ForegroundColor = ConsoleColor.Cyan;
             Console.Write(GetTagString(tag));
-            Console.Write(Space);
             Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine(log.ToString());
             Console.ForegroundColor = ConsoleColor.Gray;
@@ -79,12 +79,12 @@ namespace LogUtil
         {
             Console.ForegroundColor = ConsoleColor.Red;
             Console.Write("[E]");
+            Console.Write(Space);
             Console.ForegroundColor = ConsoleColor.White;
             Console.Write(DateTime.Now.ToString(TimeFormat));
             Console.Write(Space);
             Console.ForegroundColor = ConsoleColor.Cyan;
             Console.Write(GetTagString(tag));
-            Console.Write(Space);
             Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine(log, args);
             Console.ForegroundColor = ConsoleColor.Gray;
@@ -94,12 +94,12 @@ namespace LogUtil
         {
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.Write("[W]");
+            Console.Write(Space);
             Console.ForegroundColor = ConsoleColor.White;
             Console.Write(DateTime.Now.ToString(TimeFormat));
             Console.Write(Space);
             Console.ForegroundColor = ConsoleColor.Cyan;
             Console.Write(GetTagString(tag));
-            Console.Write(Space);
             Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine(log, args);
             Console.ForegroundColor = ConsoleColor.Gray;
@@ -109,12 +109,12 @@ namespace LogUtil
         {
             Console.ForegroundColor = ConsoleColor.Green;
             Console.Write("[I]");
+            Console.Write(Space);
             Console.ForegroundColor = ConsoleColor.White;
             Console.Write(DateTime.Now.ToString(TimeFormat));
             Console.Write(Space);
             Console.ForegroundColor = ConsoleColor.Cyan;
             Console.Write(GetTagString(tag));
-            Console.Write(Space);
             Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine(log, args);
             Console.ForegroundColor = ConsoleColor.Gray;
