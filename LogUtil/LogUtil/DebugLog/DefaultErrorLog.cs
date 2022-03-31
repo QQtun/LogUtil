@@ -44,10 +44,10 @@ namespace LogUtil
             Console.Write(Space);
             Console.ForegroundColor = ConsoleColor.Cyan;
             Console.Write(GetTagString(tag));
-            Console.ForegroundColor = ConsoleColor.DarkYellow;
-            Console.Write($"{Path.GetFileName(sourceFilePath)}, func={memberName}, line={sourceLineNumber} ");
             Console.ForegroundColor = ConsoleColor.White;
-            Console.WriteLine(log.ToString());
+            Console.Write(log.ToString());
+            Console.ForegroundColor = ConsoleColor.DarkYellow;
+            Console.WriteLine($" {Path.GetFileName(sourceFilePath)}, func={memberName}, line={sourceLineNumber} ");
             Console.ForegroundColor = ConsoleColor.Gray;
         }
 
@@ -63,10 +63,10 @@ namespace LogUtil
             Console.Write(Space);
             Console.ForegroundColor = ConsoleColor.Cyan;
             Console.Write(GetTagString(tag));
-            Console.ForegroundColor = ConsoleColor.DarkYellow;
-            Console.Write($"{Path.GetFileName(sourceFilePath)}, func={memberName}, line={sourceLineNumber} ");
             Console.ForegroundColor = ConsoleColor.White;
-            Console.WriteLine(log.ToString());
+            Console.Write(log.ToString());
+            Console.ForegroundColor = ConsoleColor.DarkYellow;
+            Console.WriteLine($" {Path.GetFileName(sourceFilePath)}, func={memberName}, line={sourceLineNumber} ");
             Console.ForegroundColor = ConsoleColor.Gray;
         }
 
@@ -82,10 +82,10 @@ namespace LogUtil
             Console.Write(Space);
             Console.ForegroundColor = ConsoleColor.Cyan;
             Console.Write(GetTagString(tag));
-            Console.ForegroundColor = ConsoleColor.DarkYellow;
-            Console.Write($"{Path.GetFileName(sourceFilePath)}, func={memberName}, line={sourceLineNumber} ");
             Console.ForegroundColor = ConsoleColor.White;
-            Console.WriteLine(log.ToString());
+            Console.Write(log.ToString());
+            Console.ForegroundColor = ConsoleColor.DarkYellow;
+            Console.WriteLine($" {Path.GetFileName(sourceFilePath)}, func={memberName}, line={sourceLineNumber} ");
             Console.ForegroundColor = ConsoleColor.Gray;
         }
 
