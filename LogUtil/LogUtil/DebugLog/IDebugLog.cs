@@ -70,13 +70,19 @@ namespace LogUtil
         void SetTagVisible(Dictionary<string, VisiblePack> tagVisible);
         void SetTagColor(Dictionary<string, LogColor> tagColor);
 
-        void ShowErrorLog(LogTag tag, object logMessage);
-        void ShowErrorLogFormat(LogTag tag, string logMessage, params object[] o);
+        void ShowErrorLog(LogTag tag, object logMessage,
+            string memberName = "",
+            string sourceFilePath = "",
+            int sourceLineNumber = 0);
 
-        void ShowWarningLog(LogTag tag, object logMessage);
-        void ShowWarningLogFormat(LogTag tag, string logMessage, params object[] o);
+        void ShowWarningLog(LogTag tag, object logMessage,
+            string memberName = "",
+            string sourceFilePath = "",
+            int sourceLineNumber = 0);
 
-        void ShowLog(LogTag tag, object logMessage);
-        void ShowLogFormat(LogTag tag, string logMessage, params object[] o);
+        void ShowLog(LogTag tag, object logMessage,
+            string memberName = "",
+            string sourceFilePath = "",
+            int sourceLineNumber = 0);
     }
 }

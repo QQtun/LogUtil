@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 
 namespace LogUtil
 {
@@ -110,7 +111,11 @@ namespace LogUtil
         /// </summary>
         /// <param name="msg"></param>
         /// <param name="tag"></param>
-        public static void LogError(object msg, LogTag tag = null)
+        public static void LogError(object msg,
+            LogTag tag = null,
+            [CallerMemberName] string memberName = "",
+            [CallerFilePath] string sourceFilePath = "",
+            [CallerLineNumber] int sourceLineNumber = 0)
         {
             lock (_debugLog)
             {
@@ -119,7 +124,7 @@ namespace LogUtil
                     tag = LogTag.Default;
                 }
 
-                _debugLog.ShowErrorLog(tag, msg);
+                _debugLog.ShowErrorLog(tag, msg, memberName, sourceFilePath, sourceLineNumber);
             }
         }
 
@@ -128,7 +133,11 @@ namespace LogUtil
         /// </summary>
         /// <param name="msg"></param>
         /// <param name="tag"></param>
-        public static void LogWarning(object msg, LogTag tag = null)
+        public static void LogWarning(object msg,
+            LogTag tag = null,
+            [CallerMemberName] string memberName = "",
+            [CallerFilePath] string sourceFilePath = "",
+            [CallerLineNumber] int sourceLineNumber = 0)
         {
             lock (_debugLog)
             {
@@ -137,7 +146,7 @@ namespace LogUtil
                     tag = LogTag.Default;
                 }
 
-                _debugLog.ShowWarningLog(tag, msg);
+                _debugLog.ShowWarningLog(tag, msg, memberName, sourceFilePath, sourceLineNumber);
             }
         }
 
@@ -146,7 +155,11 @@ namespace LogUtil
         /// </summary>
         /// <param name="msg"></param>
         /// <param name="tag"></param>
-        public static void Log(object msg, LogTag tag = null)
+        public static void Log(object msg,
+            LogTag tag = null,
+            [CallerMemberName] string memberName = "",
+            [CallerFilePath] string sourceFilePath = "",
+            [CallerLineNumber] int sourceLineNumber = 0)
         {
             lock (_debugLog)
             {
@@ -155,67 +168,7 @@ namespace LogUtil
                     tag = LogTag.Default;
                 }
 
-                _debugLog.ShowLog(tag, msg);
-            }
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="msg"></param>
-        /// <param name="o">最後一個參數可以為LogTag</param>
-        public static void LogErrorFormat(string msg, params object[] o)
-        {
-            lock (_debugLog)
-            {
-                LogTag tag = LogTag.Default;
-
-                if (o != null && o.Length > 0 && o[o.Length - 1] is LogTag)
-                {
-                    tag = (LogTag)o[o.Length - 1];
-                }
-
-                _debugLog.ShowErrorLogFormat(tag, msg, o);
-            }
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="msg"></param>
-        /// <param name="o">最後一個參數可以為LogTag</param>
-        public static void LogWarningFormat(string msg, params object[] o)
-        {
-            lock (_debugLog)
-            {
-                LogTag tag = LogTag.Default;
-
-                if (o != null && o.Length > 0 && o[o.Length - 1] is LogTag)
-                {
-                    tag = (LogTag)o[o.Length - 1];
-                }
-
-                _debugLog.ShowWarningLogFormat(tag, msg, o);
-            }
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="msg"></param>
-        /// <param name="o">最後一個參數可以為LogTag</param>
-        public static void LogFormat(string msg, params object[] o)
-        {
-            lock (_debugLog)
-            {
-                LogTag tag = LogTag.Default;
-
-                if (o != null && o.Length > 0 && o[o.Length - 1] is LogTag)
-                {
-                    tag = (LogTag)o[o.Length - 1];
-                }
-
-                _debugLog.ShowLogFormat(tag, msg, o);
+                _debugLog.ShowLog(tag, msg, memberName, sourceFilePath, sourceLineNumber);
             }
         }
 

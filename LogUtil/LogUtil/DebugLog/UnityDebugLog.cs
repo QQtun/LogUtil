@@ -69,7 +69,10 @@ namespace LogUtil
             GenerateFormatString();
         }
 
-        public void ShowErrorLog(LogTag tag, object logMessage)
+        public void ShowErrorLog(LogTag tag, object logMessage,
+            string memberName = "",
+            string sourceFilePath = "",
+            int sourceLineNumber = 0)
         {
             if (IsVisible(tag, VisiblePack.Severity.Error))
             {
@@ -85,7 +88,10 @@ namespace LogUtil
             }
         }
 
-        public void ShowWarningLog(LogTag tag, object logMessage)
+        public void ShowWarningLog(LogTag tag, object logMessage,
+            string memberName = "",
+            string sourceFilePath = "",
+            int sourceLineNumber = 0)
         {
             if (IsVisible(tag, VisiblePack.Severity.Warning))
             {
@@ -101,7 +107,10 @@ namespace LogUtil
             }
         }
 
-        public void ShowLog(LogTag tag, object logMessage)
+        public void ShowLog(LogTag tag, object logMessage,
+            string memberName = "",
+            string sourceFilePath = "",
+            int sourceLineNumber = 0)
         {
             if (IsVisible(tag, VisiblePack.Severity.Info))
             {
@@ -114,30 +123,6 @@ namespace LogUtil
             if (IsVisible(tag, VisiblePack.Severity.Info))
             {
                 UnityEngine.Debug.Log(AddColor(tag, logMessage), context);
-            }
-        }
-
-        public void ShowErrorLogFormat(LogTag tag, string logMessage, params object[] o)
-        {
-            if (IsVisible(tag, VisiblePack.Severity.Error))
-            {
-                UnityEngine.Debug.LogError(AddColorFormat(tag, logMessage, o));
-            }
-        }
-
-        public void ShowWarningLogFormat(LogTag tag, string logMessage, params object[] o)
-        {
-            if (IsVisible(tag, VisiblePack.Severity.Warning))
-            {
-                UnityEngine.Debug.LogWarning(AddColorFormat(tag, logMessage, o));
-            }
-        }
-
-        public void ShowLogFormat(LogTag tag, string logMessage, params object[] o)
-        {
-            if (IsVisible(tag, VisiblePack.Severity.Info))
-            {
-                UnityEngine.Debug.Log(AddColorFormat(tag, logMessage, o));
             }
         }
 
