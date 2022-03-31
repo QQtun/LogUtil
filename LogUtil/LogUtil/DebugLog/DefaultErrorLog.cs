@@ -44,10 +44,11 @@ namespace LogUtil
             Console.Write(Space);
             Console.ForegroundColor = ConsoleColor.Cyan;
             Console.Write(GetTagString(tag));
+            Console.ForegroundColor = ConsoleColor.DarkYellow;
+            Console.Write($" {sourceFilePath} ({sourceLineNumber}) ");
             Console.ForegroundColor = ConsoleColor.White;
             Console.Write(log.ToString());
-            Console.ForegroundColor = ConsoleColor.DarkYellow;
-            Console.WriteLine($" {Path.GetFileName(sourceFilePath)}, func={memberName}, line={sourceLineNumber} ");
+            Console.WriteLine();
             Console.ForegroundColor = ConsoleColor.Gray;
         }
 
@@ -63,10 +64,11 @@ namespace LogUtil
             Console.Write(Space);
             Console.ForegroundColor = ConsoleColor.Cyan;
             Console.Write(GetTagString(tag));
+            Console.ForegroundColor = ConsoleColor.DarkYellow;
+            Console.Write($" {sourceFilePath} ({sourceLineNumber}) ");
             Console.ForegroundColor = ConsoleColor.White;
             Console.Write(log.ToString());
-            Console.ForegroundColor = ConsoleColor.DarkYellow;
-            Console.WriteLine($" {Path.GetFileName(sourceFilePath)}, func={memberName}, line={sourceLineNumber} ");
+            Console.WriteLine();
             Console.ForegroundColor = ConsoleColor.Gray;
         }
 
@@ -82,10 +84,11 @@ namespace LogUtil
             Console.Write(Space);
             Console.ForegroundColor = ConsoleColor.Cyan;
             Console.Write(GetTagString(tag));
+            Console.ForegroundColor = ConsoleColor.DarkYellow;
+            Console.Write($" {sourceFilePath} ({sourceLineNumber}) ");
             Console.ForegroundColor = ConsoleColor.White;
             Console.Write(log.ToString());
-            Console.ForegroundColor = ConsoleColor.DarkYellow;
-            Console.WriteLine($" {Path.GetFileName(sourceFilePath)}, func={memberName}, line={sourceLineNumber} ");
+            Console.WriteLine();
             Console.ForegroundColor = ConsoleColor.Gray;
         }
 

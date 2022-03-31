@@ -6,6 +6,7 @@ namespace LogUtil
     public class Debug
     {
         private static IDebugLog _debugLog;
+        private static string _pathRoot;
 #if UNITY_ENGINE
         private static UnityDebugLog _debugLogUnity;
 #endif
@@ -106,6 +107,13 @@ namespace LogUtil
             }
         }
 
+        public static void SetRelativePathRoot(string pathRoot)
+        {
+            _pathRoot = pathRoot;
+            if (_pathRoot[_pathRoot.Length - 1] != System.IO.Path.DirectorySeparatorChar)
+                _pathRoot += System.IO.Path.DirectorySeparatorChar;
+        }
+
         /// <summary>
         /// 
         /// </summary>
@@ -123,7 +131,15 @@ namespace LogUtil
                 {
                     tag = LogTag.Default;
                 }
-
+                
+                if(!string.IsNullOrEmpty(_pathRoot))
+                {
+                    var index = sourceFilePath.IndexOf(_pathRoot);
+                    if(index >= 0)
+                    {
+                        sourceFilePath = sourceFilePath.Substring(index + _pathRoot.Length);
+                    }
+                }
                 _debugLog.ShowErrorLog(tag, msg, memberName, sourceFilePath, sourceLineNumber);
             }
         }
@@ -146,6 +162,14 @@ namespace LogUtil
                     tag = LogTag.Default;
                 }
 
+                if (!string.IsNullOrEmpty(_pathRoot))
+                {
+                    var index = sourceFilePath.IndexOf(_pathRoot);
+                    if (index >= 0)
+                    {
+                        sourceFilePath = sourceFilePath.Substring(index + _pathRoot.Length);
+                    }
+                }
                 _debugLog.ShowWarningLog(tag, msg, memberName, sourceFilePath, sourceLineNumber);
             }
         }
@@ -168,6 +192,14 @@ namespace LogUtil
                     tag = LogTag.Default;
                 }
 
+                if (!string.IsNullOrEmpty(_pathRoot))
+                {
+                    var index = sourceFilePath.IndexOf(_pathRoot);
+                    if (index >= 0)
+                    {
+                        sourceFilePath = sourceFilePath.Substring(index + _pathRoot.Length);
+                    }
+                }
                 _debugLog.ShowLog(tag, msg, memberName, sourceFilePath, sourceLineNumber);
             }
         }
