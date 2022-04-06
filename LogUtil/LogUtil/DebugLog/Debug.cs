@@ -1,15 +1,25 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 
 namespace LogUtil
 {
     public class Debug
     {
+        public enum Severity
+        {
+            Info,
+            Warning,
+            Error,
+        }
+
         private static IDebugLog _debugLog;
         private static string _pathRoot;
 #if UNITY_ENGINE
         private static UnityDebugLog _debugLogUnity;
 #endif
+
+        public static event Action<Severity, object> OnLog;
 
         static Debug()
         {
@@ -142,6 +152,7 @@ namespace LogUtil
                 }
                 _debugLog.ShowErrorLog(tag, msg, memberName, sourceFilePath, sourceLineNumber);
             }
+            OnLog?.Invoke(Severity.Error, msg);
         }
 
         /// <summary>
@@ -172,6 +183,7 @@ namespace LogUtil
                 }
                 _debugLog.ShowWarningLog(tag, msg, memberName, sourceFilePath, sourceLineNumber);
             }
+            OnLog?.Invoke(Severity.Warning, msg);
         }
 
         /// <summary>
@@ -202,6 +214,7 @@ namespace LogUtil
                 }
                 _debugLog.ShowLog(tag, msg, memberName, sourceFilePath, sourceLineNumber);
             }
+            OnLog?.Invoke(Severity.Info, msg);
         }
 
 #if UNITY_ENGINE
@@ -224,6 +237,7 @@ namespace LogUtil
                     _debugLogUnity.ShowErrorLog(tag, msg, context);
                 }
             }
+            OnLog?.Invoke(Severity.Error, msg);
         }
 
         /// <summary>
@@ -245,6 +259,7 @@ namespace LogUtil
                     _debugLogUnity.ShowWarningLog(tag, msg, context);
                 }
             }
+            OnLog?.Invoke(Severity.Warning, msg);
         }
 
         /// <summary>
@@ -266,6 +281,7 @@ namespace LogUtil
                     _debugLogUnity.ShowLog(tag, msg, context);
                 }
             }
+            OnLog?.Invoke(Severity.Info, msg);
         }
 #endif
     }
